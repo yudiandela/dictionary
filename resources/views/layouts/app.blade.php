@@ -15,20 +15,29 @@
     <body class="px-4 font-sans antialiased">
         <header class="container mx-auto flex h-[60px] items-center justify-between w-full">
             <a href="{{ route('home') }}" class="text-xl font-bold uppercase">D</a>
-            <ul class="flex gap-4">
-                @guest
-                <li class="pb-1 transition-all ease-in-out delay-150 border-b-2 border-transparent hover:border-black hover:border-b-2">
-                    <a href="{{ route('login') }}">Login</a>
-                </li>
-                @endguest
-            </ul>
 
-            @auth
-            <form action="{{ route('logout') }}" method="POST">
-                @csrf
-                <button class="pb-1 transition-all ease-in-out delay-150 border-b-2 border-transparent hover:border-black hover:border-b-2">Logout</button>
-            </form>
-            @endauth
+            <div class="flex gap-8">
+                <ul class="flex gap-4">
+                    @guest
+                    <li class="pb-1 transition-all ease-in-out delay-150 border-b-2 border-transparent hover:border-black hover:border-b-2">
+                        <a href="{{ route('login') }}">Login</a>
+                    </li>
+                    @endguest
+
+                    @auth
+                    <li class="pb-1 transition-all ease-in-out delay-150 border-b-2 border-transparent hover:border-black hover:border-b-2">
+                        <a href="{{ route('admin.word.index') }}">Dictionary</a>
+                    </li>
+                    @endauth
+                </ul>
+
+                @auth
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="pb-1 transition-all ease-in-out delay-150 border-b-2 border-transparent hover:border-black hover:border-b-2">Logout</button>
+                </form>
+                @endauth
+            </div>
         </header>
 
         <section class="container max-w-3xl mx-auto mt-48">
