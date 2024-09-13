@@ -40,7 +40,7 @@
             </div>
         </header>
 
-        <section class="container max-w-3xl mx-auto mt-48">
+        <section class="container mx-auto">
             @yield('content')
         </section>
 

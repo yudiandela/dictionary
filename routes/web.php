@@ -18,5 +18,11 @@ Route::prefix('admin')->group(function() {
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
         Route::get('/word', [WordController::class, 'index'])->name('admin.word.index');
+
+        Route::get('/word/create', [WordController::class, 'create'])->name('admin.word.create');
+        Route::post('/word/create', [WordController::class, 'store']);
+
+        Route::get('/word/update', [WordController::class, 'edit'])->name('admin.word.edit');
+        Route::put('/word/update', [WordController::class, 'update']);
     });
 });
