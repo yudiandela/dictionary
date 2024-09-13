@@ -12,10 +12,10 @@
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <header class="w-full px-5 text-sm text-gray-500 shadow-md">
+    <body class="font-sans text-xs antialiased">
+        <header class="w-full px-5 text-gray-500 shadow-md">
             <div class="container flex mx-auto h-[60px] items-center justify-between">
-                <a href="{{ route('home') }}" class="text-xl font-bold">D / Dashboard</a>
+                <a href="{{ route('home') }}" class="font-bold">D / Dashboard</a>
 
                 <div class="flex gap-8">
                     <ul class="flex gap-4">

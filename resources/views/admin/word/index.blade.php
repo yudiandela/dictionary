@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="mx-auto mt-12 max-w-7xl">
+        <div class="flex items-center justify-between">
+            <h1 class="mb-4 text-2xl font-semibold">Words</h1>
+            <a href="{{ route('admin.word.create') }}" class="px-5 py-1 text-white bg-blue-400 border rounded hover:bg-blue-500">Create</a>
+        </div>
         <table class="w-full mb-4 border">
             <thead class="border">
                 <tr>
