@@ -3,6 +3,7 @@ import './bootstrap';
 const input = document.querySelector('.search-input')
 const list = document.querySelector('.search-list')
 const loader = document.querySelector('.input-loader')
+const copy = document.querySelector('.copy-element')
 
 const debounce = (func, timeout = 300) => {
     let timer
@@ -75,7 +76,6 @@ input.addEventListener('keydown', function (e) {
     }
 });
 
-
 function addActive(x) {
     if (!x) return false;
     removeActive(x);
@@ -102,4 +102,13 @@ function closeAllLists(elmnt) {
 /*execute a function when someone clicks in the document:*/
 document.addEventListener("click", function (e) {
     closeAllLists(e.target);
+});
+
+copy.addEventListener("click", function (e) {
+    var cards = document.querySelectorAll('.card-component');
+    const lastCard = cards[cards.length - 1];
+    const card = lastCard.cloneNode(true);
+    card.id = lastCard.id.replace(/\d+$/, cards.length +1 );
+
+    lastCard.parentNode.append(card);
 });

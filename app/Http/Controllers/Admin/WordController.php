@@ -44,18 +44,20 @@ class WordController extends Controller
         $groupId = Str::orderedUuid();
 
         foreach ($words as $word) {
-            $languange = $this->getLanguagesWithKey($word['language_code']);
+            foreach ($word as $key => $value) {
+                $languange = $this->getLanguagesWithKey($words['language_code'][$key]);
 
-            Word::create([
-                'category_id' => 1,
-                'group_id' => $groupId,
-                'daily_text' => $word['daily_text'],
-                'slug' => Str::slug($word['daily_text']),
-                'formal_text' => $word['formal_text'],
-                'language_code' => $word['language_code'],
-                'language' => $languange,
-                'voice' => '',
-            ]);
+                Word::create([
+                    'category_id' => 1,
+                    'group_id' => $groupId,
+                    'daily_text' => $words['daily_text'][$key],
+                    'slug' => Str::slug($words['daily_text'][$key]),
+                    'formal_text' => $words['formal_text'][$key],
+                    'language_code' => $words['language_code'][$key],
+                    'language' => $languange,
+                    'voice' => '',
+                ]);
+            }
         }
 
         return back()->with('success', 'Words stored successfully.');
